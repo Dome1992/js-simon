@@ -5,6 +5,8 @@ const listaNumeri = document.getElementById("ul");
 
 let clock;
 
+// Dichiarazione della variabile newElement fuori dal ciclo for
+let newElement;
 
 //Aggiungi un event listener per il clic sul pulsante "start"
 startButton.addEventListener("click", start );
@@ -16,7 +18,7 @@ function start() {
 
     // ciclo for per generare i numeri 
     for (let i = 0; i < 5; i++) {
-        mioArray.push(Math.floor(Math.random(i) * 10) + 1); // Numeri casuali da 1 a 10
+        mioArray.push(Math.floor(Math.random(i) * 100) + 1); // Numeri casuali da 1 a 100
         
     }
     // Utilizzare un altro ciclo for per creare elementi HTML e visualizzare i numeri in pagina
@@ -26,7 +28,7 @@ function start() {
         listaNumeri.append(newElement);
     }
 
-   // setto con setTimeout un timer di 30 secondi 
+   // setto con setTimeout un timer di 5 secondi 
     setTimeout ( function () {
         
          console.log("Ora tocca indovinare a te!" );
@@ -36,7 +38,7 @@ function start() {
          numUtente();  
 
          // Chiamare la funzione hideElement
-         hideElement()
+         hideElement();
 
         }, 5000
          // Chiamare la funzione
@@ -47,7 +49,7 @@ function start() {
         let numUtente; // dichiarazione variabile
       
             for (let i = 0; i < 5; i++) {
-                console.log("Numeri inseriti dall'utente" + i);
+                console.log("Numeri inseriti dall'utente");
                 const numUtente = parseInt(prompt("Iinserisci un numero!"));
             }
     
@@ -64,14 +66,10 @@ function start() {
     // Funzione per nascondere gli elementi della lista
     function hideElement() {
         
-    // Seleziona tutti gli elementi della lista
-    const elementiLista = document.getElementsByTagName("li");
+        // Aggiungi la classe "hidden" all'elemento
+        listaNumeri.classList.add("hidden");
 
-    // Itera attraverso gli elementi della lista e nascondili
-    for (let i = 0; i < elementiLista.length; i++) {
-        elementiLista[i].style.display = "none";
     }
-}
 }
 
 
